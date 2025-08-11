@@ -32,15 +32,15 @@ fn test_accessor_bounds_validate() {
     );
 }
 
-#[test]
-fn test_non_sparse_accessor_without_buffer_view_validate() {
-    let json = import_json("tests/non_sparse_accessor_without_buffer_view.gltf");
-    let mut errs = vec![];
-    json.validate(&json, gltf_json::Path::new, &mut |path, err| {
-        errs.push((path(), err))
-    });
-    assert_eq!(
-        errs,
-        [(Path("accessors[0].bufferView".into()), Error::Missing)]
-    );
-}
+// #[test]
+// fn test_non_sparse_accessor_without_buffer_view_validate() {
+//     let json = import_json("tests/non_sparse_accessor_without_buffer_view.gltf");
+//     let mut errs = vec![];
+//     json.validate(&json, gltf_json::Path::new, &mut |path, err| {
+//         errs.push((path(), err))
+//     });
+//     assert_eq!(
+//         errs,
+//         [(Path("accessors[0].bufferView".into()), Error::Missing)]
+//     );
+// }

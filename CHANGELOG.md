@@ -284,7 +284,7 @@ The top-level `gltf` crate adheres to [Semantic Versioning](http://semver.org/sp
 
 - `fn Gltf::from_str` -- use `fn Gltf::from_slice` instead.
 - `fn Gltf::from_value` -- no longer supported.
-- `fn gltf::is_binary` -- use `slice.starts_with("glTF")` instead.
+- `fn gltf_parser::is_binary` -- use `slice.starts_with("glTF")` instead.
 - `struct Unvalidated` -- replaced with `enum Validation`.
 - `crate gltf-importer` -- no longer supported.
 - `Node::matrix` -- use `transform().matrix()` instead.
@@ -359,7 +359,7 @@ The top-level `gltf` crate adheres to [Semantic Versioning](http://semver.org/sp
 - New `Attributes` iterator, which visits all vertex attributes of a `Primitive`.
 - New `glb` module, containing functions for parsing .glb (binary glTF) files.
 - New `is_binary` function, which tests for the glTF magic string.
-- New 'explicit' validation strategy with the `gltf::Unvalidated` type.
+- New 'explicit' validation strategy with the `gltf_parser::Unvalidated` type.
 - New `Bounds` type describing the minimum and maximum values of accessors.
 - New `Accessor::position_bounds` convenience function.
 - `Info`, `NormalTexture`, and `OcclusionTexture` now implement `AsRef<Texture>`.

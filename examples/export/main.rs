@@ -178,8 +178,8 @@ fn export(output: Output) {
             let json_string = json::serialize::to_string(&root).expect("Serialization error");
             let mut json_offset = json_string.len();
             align_to_multiple_of_four(&mut json_offset);
-            let glb = gltf::binary::Glb {
-                header: gltf::binary::Header {
+            let glb = gltf_parser::binary::Glb {
+                header: gltf_parser::binary::Header {
                     magic: *b"glTF",
                     version: 2,
                     // N.B., the size of binary glTF file is limited to range of `u32`.

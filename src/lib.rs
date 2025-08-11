@@ -25,7 +25,7 @@
 //!
 //! ```
 //! # fn run() -> Result<(), Box<dyn std::error::Error>> {
-//! # use gltf::Gltf;
+//! # use gltf_parser::Gltf;
 //! let gltf = Gltf::open("examples/Box.gltf")?;
 //! for scene in gltf.scenes() {
 //!     for node in scene.nodes() {
@@ -50,7 +50,7 @@
 //!
 //! ```
 //! # fn run() -> Result<(), Box<dyn std::error::Error>> {
-//! let (document, buffers, images) = gltf::import("examples/Box.gltf")?;
+//! let (document, buffers, images) = gltf_parser::import("examples/Box.gltf")?;
 //! assert_eq!(buffers.len(), document.buffers().count());
 //! assert_eq!(images.len(), document.images().count());
 //! # Ok(())
@@ -78,6 +78,8 @@
 //! [`Glb`]: struct.Glb.html
 //! [`Node`]: struct.Node.html
 //! [`Scene`]: struct.Scene.html
+
+pub use draco_decoder::*;
 
 #[cfg(test)]
 #[macro_use]
@@ -365,7 +367,8 @@ impl Document {
     /// Loads glTF from pre-deserialized JSON without performing
     /// validation checks.
     pub fn from_json_without_validation(json: json::Root) -> Self {
-        Document(json)
+        let mut document = Document(json);
+        document
     }
 
     /// Unwraps the glTF document.

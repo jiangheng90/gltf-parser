@@ -258,10 +258,10 @@ fn import_path(path: &Path) -> Result<Import> {
 /// Import glTF 2.0 from the file system.
 ///
 /// ```
-/// # fn run() -> Result<(), gltf::Error> {
+/// # fn run() -> Result<(), gltf_parser::Error> {
 /// # let path = "examples/Box.gltf";
 /// # #[allow(unused)]
-/// let (document, buffers, images) = gltf::import(path)?;
+/// let (document, buffers, images) = gltf_parser::import(path)?;
 /// # Ok(())
 /// # }
 /// # fn main() {
@@ -304,16 +304,16 @@ fn import_slice_impl(slice: &[u8]) -> Result<Import> {
 /// A typical user should call [`import`] instead.
 ///
 /// ```
-/// # extern crate gltf;
+/// # extern crate gltf_parser;
 /// # use std::fs;
 /// # use std::io::Read;
-/// # fn run() -> Result<(), gltf::Error> {
+/// # fn run() -> Result<(), gltf_parser::Error> {
 /// # let path = "examples/Box.glb";
-/// # let mut file = fs::File::open(path).map_err(gltf::Error::Io)?;
+/// # let mut file = fs::File::open(path).map_err(gltf_parser::Error::Io)?;
 /// # let mut bytes = Vec::new();
-/// # file.read_to_end(&mut bytes).map_err(gltf::Error::Io)?;
+/// # file.read_to_end(&mut bytes).map_err(gltf_parser::Error::Io)?;
 /// # #[allow(unused)]
-/// let (document, buffers, images) = gltf::import_slice(bytes.as_slice())?;
+/// let (document, buffers, images) = gltf_parser::import_slice(bytes.as_slice())?;
 /// # Ok(())
 /// # }
 /// # fn main() {
